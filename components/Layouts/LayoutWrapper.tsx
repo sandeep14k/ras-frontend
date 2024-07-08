@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ArticleIcon from "@mui/icons-material/Article";
+import FileCopyIcon from "@mui/icons-material/FileCopy";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
@@ -10,6 +11,7 @@ import FeedIcon from "@mui/icons-material/Feed";
 import LightbulbIcon from "@mui/icons-material/Lightbulb";
 import PieChartIcon from "@mui/icons-material/PieChart";
 import TravelExploreIcon from "@mui/icons-material/TravelExplore";
+import SummarizeIcon from "@mui/icons-material/Summarize";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import GroupsIcon from "@mui/icons-material/Groups";
@@ -217,6 +219,11 @@ function LayoutWrapper({ children }: { children: JSX.Element }) {
           name: "Profile",
           id: "/profile",
         },
+        {
+          avatar: <FileCopyIcon />,
+          name: "Documents",
+          id: "/documents",
+        },
       ],
       extra: [
         {
@@ -227,12 +234,12 @@ function LayoutWrapper({ children }: { children: JSX.Element }) {
         {
           avatar: <ArticleIcon />,
           name: "Intern Policy",
-          id: "https://spo.iitk.ac.in/docs/students/internship-policy.pdf",
+          id: "https://spo.iitk.ac.in/assets/2023-24/Internship-Policy-2023-24.pdf",
         },
         {
           avatar: <ArticleIcon />,
           name: "Placement Policy",
-          id: "https://spo.iitk.ac.in/docs/2021-22/Placement_Policy_2021-22.pdf",
+          id: "https://spo.iitk.ac.in/assets/2023-24/Placement_Policy_2023-24.pdf",
         },
         {
           avatar: <StarsIcon />,
@@ -267,6 +274,11 @@ function LayoutWrapper({ children }: { children: JSX.Element }) {
           avatar: <ArticleIcon />,
           name: "Manage Resume",
           id: "/resume",
+        },
+        {
+          avatar: <SummarizeIcon />,
+          name: "Manage PVFs",
+          id: "/pvf",
         },
         {
           avatar: <TravelExploreIcon />,
@@ -474,6 +486,13 @@ function LayoutWrapper({ children }: { children: JSX.Element }) {
               avatar: <ArticleIcon />,
               name: "Proforma",
               id: "/proforma",
+            }
+          : { avatar: <></>, name: "", id: "", hidden: true },
+        role === 100 || role === 101 || role === 102
+          ? {
+              avatar: <SummarizeIcon />,
+              name: "PVFs",
+              id: "/pvf",
             }
           : { avatar: <></>, name: "", id: "", hidden: true },
         role === 100 || role === 101 || role === 102
